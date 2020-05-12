@@ -7,12 +7,12 @@ for i = 1:420
 end
 
 for i = 1:420
-    BrainNet_GenCoord_new(strcat('/Users/zg243/Desktop/wmparc/wmparc_',int2str(A(i)),'.nii'),strcat('/Users/zg243/Desktop/node/subj_',int2str(A(i)),'.node'), 1);
+    BrainNet_GenCoord_new(strcat('./wmparc/wmparc_',int2str(A(i)),'.nii'),strcat('./node/subj_',int2str(A(i)),'.node'), 1);
 end
 
 subj_roi = [];
 for i = 1:420 
-    Vparc_wmparc = read_avw(strcat('/Users/zg243/Desktop/wmparc/wmparc_',int2str(A(i)),'.nii'));
+    Vparc_wmparc = read_avw(strcat('./wmparc/wmparc_',int2str(A(i)),'.nii'));
     Vparc = reshape(Vparc_wmparc,[],1);
     roi = unique(Vparc(:,1));
     roi = roi(roi~=0);
@@ -29,7 +29,7 @@ gmlabels=[8;10;11;12;13;17;18;26;28;47;49;50;51;52;53;54;58;60;1001;
 
 Distance = [];
 for i = 1:420
-    node = load(strcat('/Users/zg243/Desktop/node/subj_',int2str(A(i)),'.node'));
+    node = load(strcat('./node/subj_',int2str(A(i)),'.node'));
     node_id = subj_roi{i};
     pos = [];
     for j = 1:length(node)
